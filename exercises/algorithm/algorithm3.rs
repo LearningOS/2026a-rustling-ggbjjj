@@ -3,10 +3,15 @@
 	This problem requires you to implement a sorting algorithm
 	you can use bubble sorting, insertion sorting, heap sorting, etc.
 */
-// I AM NOT DONE
 
-fn sort<T>(array: &mut [T]){
-	//TODO
+fn sort<T: Ord>(array: &mut [T]) {
+    for index in 1..array.len() {
+        let mut position = index;
+        while position > 0 && array[position] < array[position - 1] {
+            array.swap(position, position - 1);
+            position -= 1;
+        }
+    }
 }
 #[cfg(test)]
 mod tests {
